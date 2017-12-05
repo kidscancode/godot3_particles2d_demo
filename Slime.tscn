@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/Gradient (z -6).png" type="Texture" id=1]
+[ext_resource path="res://assets/cave_bg.png" type="Texture" id=2]
+[ext_resource path="res://SlimeDrops.tscn" type="PackedScene" id=3]
+
+[node name="Slime" type="Node"]
+
+[node name="Gradient (z -6)" type="Sprite" parent="."]
+
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 562.406, 384.318 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Sprite" type="Sprite" parent="."]
+
+position = Vector2( 365.195, 241.983 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Animation", "Transform" ]
+
+[node name="SlimeDrops" parent="." instance=ExtResource( 3 )]
+
+

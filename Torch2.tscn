@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/Torch Side.png" type="Texture" id=1]
+
+[sub_resource type="Gradient" id=4]
+
+offsets = PoolRealArray( 0, 0.532544, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.847656, 0.519981, 0.0562897, 0.723432, 0.957031, 0.0336456, 0.0336456, 0.480667 )
+
+[sub_resource type="GradientTexture" id=5]
+
+gradient = SubResource( 4 )
+width = 2048
+
+[sub_resource type="Curve" id=2]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 0.740592 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.424591 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+
+width = 2048
+curve = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=1]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 5, 18, 1 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 0.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+initial_velocity_random = 0.0
+angular_velocity = 350.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 25.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 45.0
+angle_random = 0.0
+scale = 25.0
+scale_random = 0.0
+scale_curve = SubResource( 3 )
+color_ramp = SubResource( 5 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angle", "Angular Velocity", "Color", "Emission Shape", "Linear Accel", "Spread" ]
+
+[node name="Torch" type="Sprite"]
+
+position = Vector2( 274.89, 315.792 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Particles2D" type="Particles2D" parent="."]
+
+show_behind_parent = true
+position = Vector2( 4.37796, -23.2368 )
+rotation = -1.5708
+emitting = true
+amount = 100
+lifetime = 2.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 2.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 1 )
+texture = null
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Time", "Transform", "Visibility" ]
+
+

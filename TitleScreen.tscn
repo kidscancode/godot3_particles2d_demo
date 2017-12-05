@@ -1,0 +1,199 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/Gradient (z -6).png" type="Texture" id=1]
+[ext_resource path="res://assets/kcc_logo (trans) copy.png" type="Texture" id=2]
+[ext_resource path="res://assets/DroidSans-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://SlimeDrops.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Torch.tscn" type="PackedScene" id=5]
+[ext_resource path="res://House.tscn" type="PackedScene" id=6]
+[ext_resource path="res://icon.png" type="Texture" id=7]
+[ext_resource path="res://assets/logo_darktheme.png" type="Texture" id=8]
+[ext_resource path="res://Chest.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/icon_particles_2d.svg" type="Texture" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 64
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="ParticlesMaterial" id=2]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 100.0
+initial_velocity_random = 0.0
+angular_velocity = 75.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Gravity", "Initial Velocity", "Scale" ]
+
+[node name="TitleScreen" type="Node"]
+
+[node name="Sprite" type="Sprite" parent="."]
+
+modulate = Color( 0.195312, 0.195312, 0.195312, 1 )
+position = Vector2( 301.02, 237.446 )
+scale = Vector2( 0.399494, 0.23974 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Logo" type="Sprite" parent="."]
+
+position = Vector2( 527.259, 417.967 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+margin_right = -1.0
+margin_bottom = 144.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.160767, 0.991699, 0.191772, 1 )
+
+[node name="Title" type="Label" parent="ColorRect"]
+
+anchor_left = 0.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -1.0
+margin_top = -76.0
+margin_right = 1.0
+margin_bottom = 79.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.0932159, 0.582031, 0.111395, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 2
+text = "Know Your Nodes:
+Particles2D"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Grow Direction", "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="SlimeDrops" parent="." instance=ExtResource( 4 )]
+
+position = Vector2( 349.209, 151.534 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Torch" parent="." instance=ExtResource( 5 )]
+
+position = Vector2( 398.833, 361.44 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="Torch2" parent="." instance=ExtResource( 5 )]
+
+visible = false
+position = Vector2( 564.58, 310 )
+scale = Vector2( -0.75, 0.75 )
+
+[node name="House" parent="." instance=ExtResource( 6 )]
+
+position = Vector2( 97.7317, 422.771 )
+scale = Vector2( 1.4, 1.4 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+
+visible = false
+position = Vector2( 480.776, 444.85 )
+rotation = -0.785398
+emitting = true
+amount = 8
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 2 )
+texture = ExtResource( 7 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Textures", "Transform" ]
+
+[node name="logo_darktheme" type="Sprite" parent="."]
+
+position = Vector2( 72.4862, 144.868 )
+rotation = -0.252704
+scale = Vector2( 1.25, 1.25 )
+texture = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( 1, 2, 86, 82 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Chest" parent="." instance=ExtResource( 9 )]
+
+position = Vector2( 239.697, 327.685 )
+scale = Vector2( -0.5, 0.5 )
+
+[node name="Coins" parent="Chest"]
+
+emitting = true
+one_shot = false
+speed_scale = 2.0
+
+[node name="icon_particles_2d" type="Sprite" parent="."]
+
+modulate = Color( 0.841034, 0.854024, 0.992188, 1 )
+position = Vector2( 527.004, 151.298 )
+rotation = 0.378527
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 10 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+
+[editable path="Chest"]

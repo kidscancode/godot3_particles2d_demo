@@ -1,0 +1,243 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Forest.gd" type="Script" id=1]
+[ext_resource path="res://assets/forest/bgcolor.png" type="Texture" id=2]
+[ext_resource path="res://assets/forest/Tlayer1.png" type="Texture" id=3]
+[ext_resource path="res://assets/forest/Tlayer2.png" type="Texture" id=4]
+[ext_resource path="res://assets/forest/Tlayer3.png" type="Texture" id=5]
+[ext_resource path="res://assets/forest/Textures&trees.png" type="Texture" id=6]
+[ext_resource path="res://House.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/smoke1.png" type="Texture" id=8]
+
+[sub_resource type="AtlasTexture" id=1]
+
+atlas = ExtResource( 6 )
+region = Rect2( 16, 70, 241, 26 )
+margin = Rect2( 0, 0, 0, 0 )
+filter_clip = false
+
+[sub_resource type="Curve" id=2]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 0 ), 0.0, 0.636292, 0, 0, Vector2( 0.982658, 0 ), -1.39523, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+
+width = 2048
+curve = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 100, 60, 1 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 180.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 1.0
+angular_velocity = 50.0
+angular_velocity_random = 0.5
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 0.1
+scale_random = 0.1
+scale_curve = SubResource( 3 )
+color = Color( 1, 1, 1, 0.790078 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Scale" ]
+
+[sub_resource type="Curve" id=5]
+
+min_value = -200.0
+max_value = 200.0
+bake_resolution = 100
+_data = [ Vector2( 0.0027602, 75.8324 ), 0.0, -93.184, 0, 0, Vector2( 1, 124.609 ), -114.044, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+
+width = 2048
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 100, 25, 1 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 0.0
+flatness = 0.0
+gravity = Vector3( 0, 198, 0 )
+initial_velocity = 0.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+tangential_accel_curve = SubResource( 6 )
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+color = Color( 0.390015, 0.411885, 0.554688, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Emission Shape", "Tangential Accel", "Trail" ]
+
+[sub_resource type="AtlasTexture" id=8]
+
+atlas = ExtResource( 6 )
+region = Rect2( 63, 160, 52, 25 )
+margin = Rect2( 0, 0, 0, 0 )
+filter_clip = false
+
+[node name="Forest" type="Node2D"]
+
+position = Vector2( 293.644, 241.536 )
+scale = Vector2( 3, 3 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="bgcolor" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+[node name="bgcolor2" type="Sprite" parent="."]
+
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="bgcolor3" type="Sprite" parent="."]
+
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="bgcolor4" type="Sprite" parent="."]
+
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -120.0
+margin_top = 33.0
+margin_right = 121.0
+margin_bottom = 62.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = SubResource( 1 )
+stretch_mode = 3
+
+[node name="House" parent="." instance=ExtResource( 7 )]
+
+[node name="UpsideDown" type="Particles2D" parent="."]
+
+emitting = false
+amount = 50
+lifetime = 5.0
+one_shot = false
+preprocess = 5.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 4 )
+texture = ExtResource( 8 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Time", "Transform" ]
+
+[node name="Rain" type="Particles2D" parent="."]
+
+position = Vector2( 20.0141, -110.738 )
+emitting = false
+amount = 250
+lifetime = 2.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 7 )
+texture = null
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Time", "Transform" ]
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -100.0
+margin_top = 60.0
+margin_right = 106.0
+margin_bottom = 87.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = SubResource( 8 )
+expand = true
+stretch_mode = 0
+
+

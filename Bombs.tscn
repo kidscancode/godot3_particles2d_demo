@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Bombs.gd" type="Script" id=1]
+[ext_resource path="res://Bomb.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Explosion.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sandCenter.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 323.777, 32.0043 )
+
+[node name="Bombs" type="Node2D"]
+
+script = ExtResource( 1 )
+Bomb = ExtResource( 2 )
+Explosion = ExtResource( 3 )
+
+[node name="Ground" type="StaticBody2D" parent="."]
+
+position = Vector2( 310.601, 446.874 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Ground"]
+
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 640, 64 )
+_sections_unfolded = [ "Region" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+
+shape = SubResource( 1 )
+
+

@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/BrickHouse.png" type="Texture" id=1]
+[ext_resource path="res://Smoke.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Gradient" id=1]
+
+offsets = PoolRealArray( 0, 1 )
+colors = PoolColorArray( 0.563529, 0.555529, 0.65, 0.618784, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+
+gradient = SubResource( 1 )
+width = 2048
+
+[sub_resource type="Curve" id=3]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 0.0488281 ), 0.0, 0.801052, 0, 0, Vector2( 1, 0.295898 ), -0.825937, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+
+width = 2048
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 0.0
+flatness = 0.0
+gravity = Vector3( 0, -10, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale = 0.3
+scale_random = 0.0
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Emission Shape", "Gravity", "Hue Variation", "Radial Accel", "Scale" ]
+
+[node name="House" type="Sprite"]
+
+modulate = Color( 0.683594, 0.683594, 0.683594, 1 )
+position = Vector2( 74.6074, 47.8921 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Animation", "Transform", "Visibility" ]
+
+[node name="Smoke" parent="." instance=ExtResource( 2 )]
+
+show_behind_parent = true
+position = Vector2( 17.7258, -30.3885 )
+scale = Vector2( 1.25, 1.25 )
+process_material = SubResource( 5 )
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform", "Visibility" ]
+
+

@@ -1,0 +1,103 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/train..png" type="Texture" id=1]
+[ext_resource path="res://Train.gd" type="Script" id=2]
+[ext_resource path="res://Smoke.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Gradient" id=1]
+
+offsets = PoolRealArray( 0, 1 )
+colors = PoolColorArray( 0.563529, 0.555529, 0.65, 0.618784, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+
+gradient = SubResource( 1 )
+width = 2048
+
+[sub_resource type="Curve" id=3]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0.000572929, 0.220703 ), 0.0, 3.58387, 0, 0, Vector2( 0.999427, 1 ), -0.176236, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+
+width = 2048
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 0.0
+flatness = 0.0
+gravity = Vector3( -50, -5, 0 )
+initial_velocity = 100.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale = 0.3
+scale_random = 0.0
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Emission Shape", "Gravity", "Hue Variation", "Initial Velocity", "Radial Accel", "Scale", "Trail" ]
+
+[node name="Train" type="Sprite"]
+
+show_behind_parent = true
+position = Vector2( 270.402, 345.954 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+speed = 150
+
+[node name="Smoke" parent="." instance=ExtResource( 3 )]
+
+show_behind_parent = true
+position = Vector2( 420.619, -398.276 )
+rotation = -1.5708
+scale = Vector2( 5, 5 )
+amount = 50
+lifetime = 4.0
+preprocess = 0.0
+speed_scale = 2.0
+visibility_rect = Rect2( -100, -300, 200, 500 )
+local_coords = false
+process_material = SubResource( 5 )
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform", "Visibility" ]
+
+[node name="Smoke2" parent="." instance=ExtResource( 3 )]
+
+visible = false
+show_behind_parent = true
+position = Vector2( 424.024, -359.108 )
+scale = Vector2( 5, 5 )
+local_coords = false
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform", "Visibility" ]
+
+

@@ -1,0 +1,98 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Chest.gd" type="Script" id=1]
+[ext_resource path="res://assets/chest1.png" type="Texture" id=2]
+[ext_resource path="res://assets/Full Coins.png" type="Texture" id=3]
+
+[sub_resource type="ParticlesMaterial" id=1]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 15, 1, 1 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 0.0
+flatness = 0.0
+gravity = Vector3( 0, -98, 0 )
+initial_velocity = 0.0
+initial_velocity_random = 0.0
+angular_velocity = 4.2039e-45
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 10.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 2.0
+scale_random = 0.0
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 2.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = true
+_sections_unfolded = [ "Animation", "Color", "Emission Shape", "Gravity", "Initial Velocity", "Scale", "Spread" ]
+
+[node name="Chest" type="Area2D"]
+
+position = Vector2( 281.232, 300.773 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Coins" type="Particles2D" parent="."]
+
+position = Vector2( 22.3943, -32.5079 )
+emitting = false
+amount = 10
+lifetime = 2.0
+one_shot = true
+preprocess = 0.0
+speed_scale = 2.5
+explosiveness = 0.5
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 1 )
+texture = ExtResource( 3 )
+normal_map = null
+h_frames = 8
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Textures", "Time", "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+build_mode = 0
+polygon = PoolVector2Array( -75.3664, 49.0616, 7.56302, 87.8635, 91.8442, 47.1, 85.1466, -67.4284, 41.0391, -88.6469, -80.2832, -31.9313 )
+
+[connection signal="input_event" from="." to="." method="_on_Chest_input_event"]
+
+
