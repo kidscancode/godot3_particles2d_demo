@@ -3,16 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/kcc_logo (trans) copy.png-840ee5f3594c11aba237a6ccfc490190.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_md5="259a9eb7b5dbe94231bd8a73c62a4498"
+source_file="res://assets/kcc_logo (trans) copy.png"
+dest_files=[ "res://.import/kcc_logo (trans) copy.png-840ee5f3594c11aba237a6ccfc490190.stex" ]
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -22,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=true
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=false

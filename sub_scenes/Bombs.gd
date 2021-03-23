@@ -9,9 +9,9 @@ func _input(event):
 		b.position = get_global_mouse_position()
 		add_child(b)
 		b.connect("boom", self, "explode")
-		
+
 func explode(_position):
 	var e = Explosion.instance()
 	e.position = _position + Vector2(0, 30)
+	e.emitting = true
 	add_child(e)
-	
