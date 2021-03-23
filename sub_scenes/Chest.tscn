@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://sub_scenes/Chest.gd" type="Script" id=1]
+[ext_resource path="res://assets/Full Coins.png" type="Texture" id=2]
+[ext_resource path="res://assets/chest1.png" type="Texture" id=3]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticlesMaterial" id=2]
+emission_shape = 2
+emission_box_extents = Vector3( 15, 1, 1 )
+flag_disable_z = true
+spread = 0.0
+gravity = Vector3( 0, -98, 0 )
+angular_velocity = 4.2039e-45
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = 10.0
+scale = 2.0
+anim_speed = 2.0
+
+[node name="Chest" type="Area2D"]
+position = Vector2( 281.232, 300.773 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="Coins" type="Particles2D" parent="."]
+material = SubResource( 1 )
+position = Vector2( 22.3943, -32.5079 )
+emitting = false
+amount = 10
+lifetime = 2.0
+one_shot = true
+speed_scale = 2.5
+explosiveness = 0.5
+process_material = SubResource( 2 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -75.3664, 49.0616, 7.56302, 87.8635, 91.8442, 47.1, 85.1466, -67.4284, 41.0391, -88.6469, -80.2832, -31.9313 )
+
+[connection signal="input_event" from="." to="." method="_on_Chest_input_event"]
